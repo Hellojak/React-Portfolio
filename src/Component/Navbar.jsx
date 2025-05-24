@@ -69,12 +69,12 @@ const Navbar = () => {
 
         {/* Mobile Menu (shown when hamburger clicked) */}
         <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"} 
-         text-center transition-all duration-300 ease-in-out`}>
+         text-center transition-all duration-300 ease-in-out h-dvh bg-white`}>
           <ul className="flex flex-col space-y-3 py-4">
             {navItems.map((item) => (
               <li key={item.name}>
-                <a
-                  href={item.href}
+                <Link
+                  to={item.path}
                   className={`block px-2 py-1 ${activeTab === item.name ? "text-purple-600 font-bold" : "hover:text-purple-400"}`}
                   onClick={() => {
                     setActiveTab(item.name);
@@ -82,7 +82,7 @@ const Navbar = () => {
                   }}
                 >
                   {item.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
